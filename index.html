@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>San Valentín 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .container {
+    background: rgba(255,255,255,0.25);
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 2.3em;
+    margin-bottom: 15px;
+  }
+
+  .cat {
+    font-size: 6em;
+    margin: 10px 0;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #noBtn {
+    background: #6c757d;
+    color: white;
+  }
+
+  .final {
+    display: none;
+    color: white;
+    font-size: 2em;
+  }
+
+  .hearts {
+    font-size: 2.5em;
+    margin-top: 10px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+  <h1>¿Me amas? 💕</h1>
+
+  <div class="cat">🐱🤍💖</div>
+
+  <div class="buttons">
+    <button id="yesBtn">Sí ❤️</button>
+    <button id="noBtn">No 💔</button>
+  </div>
+</div>
+
+<div class="final" id="final">
+  <div>Yo también te amo mucho 💘</div>
+  <div class="hearts">💖💖💖💖💖</div>
+</div>
+
+<script>
+  let yesBtn = document.getElementById("yesBtn");
+  let noBtn = document.getElementById("noBtn");
+  let final = document.getElementById("final");
+  let main = document.getElementById("main");
+
+  let scale = 1;
+  let noClicks = 0;
+
+  noBtn.addEventListener("click", () => {
+    scale += 0.25;
+    yesBtn.style.transform = `scale(${scale})`;
+    noClicks++;
+
+    if (noClicks >= 5) {
+      noBtn.style.display = "none";
+    }
+  });
+
+  yesBtn.addEventListener("click", () => {
+    main.style.display = "none";
+    final.style.display = "block";
+  });
+</script>
+
+</body>
+</html>
